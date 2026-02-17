@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Result</title>
 
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #84fab0, #8fd3f4);
-            min-height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .result-box {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            width: 380px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#84fab0,#8fd3f4,#cfd9df,#e2ebf0);
+    background-size:300% 300%;
+    animation: gradientMove 12s ease infinite;
+}
 
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        .prediction {
-            font-size: 26px;
-            font-weight: bold;
-            color: #2e7d32;
-            margin: 20px 0;
-        }
+.result-box{
+    width:380px;
+    padding:40px;
+    text-align:center;
+    border-radius:22px;
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.3);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 1s ease;
+}
 
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            background: #2e7d32;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        a:hover {
-            background: #1b5e20;
-        }
-    </style>
+h2{
+    color:#222;
+    margin-bottom:25px;
+}
+
+.prediction{
+    font-size:28px;
+    font-weight:bold;
+    color:#1b5e20;
+    margin:25px 0;
+    padding:18px;
+    border-radius:14px;
+    background: rgba(255,255,255,0.6);
+}
+
+a{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:14px;
+    color:white;
+    font-weight:600;
+    background: linear-gradient(45deg,#43a047,#2e7d32);
+    transition:0.3s;
+}
+
+a:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+</style>
 </head>
 
 <body>

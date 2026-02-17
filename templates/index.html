@@ -1,81 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pumpkin Seed Classifier</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pumpkin Seed Classifier</title>
 
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #f6d365, #fda085);
-            min-height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .container {
-            background: #ffffff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            width: 420px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#f6d365,#fda085,#84fab0,#8fd3f4);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #333;
-        }
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-            color: #555;
-        }
+.container{
+    width:420px;
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.25);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    border:1px solid rgba(255,255,255,0.3);
+    transition:0.4s;
+}
 
-        input[type="text"] {
-            width: 100%;
-            padding: 8px 10px;
-            margin-top: 5px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
+.container:hover{
+    transform: translateY(-5px);
+}
 
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #fda085;
-        }
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#222;
+}
 
-        .btn {
-            width: 100%;
-            margin-top: 20px;
-            padding: 10px;
-            background: #fda085;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+label{
+    font-size:14px;
+    font-weight:600;
+    margin-top:12px;
+    display:block;
+    color:#333;
+}
 
-        .btn:hover {
-            background: #f57c00;
-        }
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:10px;
+    border:none;
+    background: rgba(255,255,255,0.7);
+    font-size:14px;
+    transition:0.3s;
+}
 
-        .footer {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 12px;
-            color: #777;
-        }
-    </style>
+input:focus{
+    outline:none;
+    background:white;
+    box-shadow:0 0 0 2px #fda085;
+}
+
+.btn{
+    width:100%;
+    margin-top:25px;
+    padding:12px;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    background: linear-gradient(45deg,#ff7e5f,#feb47b);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.04);
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+    font-size:12px;
+    color:#444;
+}
+</style>
 </head>
 
 <body>
@@ -121,7 +146,7 @@
         <label>Compactness</label>
         <input type="text" name="compactness" required>
 
-        <button type="submit" class="btn">Predict</button>
+        <button class="btn">Predict</button>
     </form>
 
     <div class="footer">
